@@ -16,11 +16,12 @@ class AuthController extends Controller
             'nombre' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
         ]);
         // Se controla la creacion de nuevos usuarios 
 
         $user = User::create([
-            'nombre' => $request->name,
+            'nombre' => $request->nombre,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'rol' => 'cliente'

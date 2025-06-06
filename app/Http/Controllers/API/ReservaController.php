@@ -5,23 +5,12 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Reserva;
 use App\Models\Autocaravana;
-use App\Models\User;
 use Illuminate\Http\Request;
-use App\Services\PagoService;
-use App\Services\EmailService;
 use Carbon\Carbon;
+use App\Models\User;
 
 class ReservaController extends Controller
 {
-    protected $pagoService;
-    protected $emailService;
-
-    public function __construct(PagoService $pagoService, EmailService $emailService)
-    {
-        $this->pagoService = $pagoService;
-        $this->emailService = $emailService;
-    }
-
     public function index(Request $request)
     {
         // Obtener solo reservas futuras del usuario
@@ -80,25 +69,20 @@ class ReservaController extends Controller
             'fecha_inicio' => $validated['fecha_inicio'],
             'fecha_fin' => $validated['fecha_fin'],
             'precio_total' => $precioTotal,
-            'pago_realizado' => false
+            'pago_realizado' => false // Mantenemos este campo pero no se usará para pagos
         ]);
-
-        // Procesar pago del 20%
-        $paymentIntent = $this->pagoService->crearPago($reserva, $precioTotal * 0.2);
-
-        // Enviar email de confirmación
-        $this->emailService->enviarConfirmacionReserva($reserva);
 
         return response()->json([
             'reserva' => $reserva,
-            'payment_intent' => $paymentIntent
+            'precio_total' => $precioTotal,
+            'dias' => $dias
         ], 201);
     }
 
     public function update(Request $request, Reserva $reserva)
     {
         // Verificar que el usuario es el dueño de la reserva
-        if ($request->user()->id !== $reserva->user_id && $request->user()->rol !== 'admin') {
+        if ($request->user()->id !== $reserva->id_usuario && $request->user()->rol !== 'admin') {
             abort(403, 'No autorizado');
         }
 
@@ -107,10 +91,9 @@ class ReservaController extends Controller
             'fecha_fin' => 'sometimes|required|date|after:fecha_inicio',
             'id_autocaravana' => 'sometimes|required|exists:autocaravanas,id'
         ]);
-    
 
         // Verificar disponibilidad si se cambia vehículo o fechas
-            if (isset($validated['id_autocaravana'])) {
+        if (isset($validated['id_autocaravana'])) {
             $idCaravana = $validated['id_autocaravana'];
         } else {
             $idCaravana = $reserva->id_autocaravana;
@@ -146,6 +129,18 @@ class ReservaController extends Controller
             ], 409);
         }
 
+        // Recalcular precio si cambian fechas o autocaravana
+        if (isset($validated['fecha_inicio']) || isset($validated['fecha_fin']) || isset($validated['id_autocaravana'])) {
+            $autocaravana = isset($validated['id_autocaravana']) ? 
+                Autocaravana::find($validated['id_autocaravana']) : 
+                $reserva->autocaravana;
+                
+            $dias = Carbon::parse($validated['fecha_inicio'] ?? $reserva->fecha_inicio)
+                ->diffInDays(Carbon::parse($validated['fecha_fin'] ?? $reserva->fecha_fin));
+                
+            $validated['precio_total'] = $dias * $autocaravana->precio_por_dia;
+        }
+
         $reserva->update($validated);
 
         return response()->json($reserva);
@@ -154,7 +149,7 @@ class ReservaController extends Controller
     public function destroy(Request $request, Reserva $reserva)
     {
         // Verificar que el usuario es el dueño de la reserva o es admin
-        if ($request->user()->id !== $reserva->user_id && $request->user()->rol !== 'admin') {
+        if ($request->user()->id !== $reserva->id_usuario && $request->user()->rol !== 'admin') {
             abort(403, 'No autorizado');
         }
 
@@ -162,4 +157,10 @@ class ReservaController extends Controller
 
         return response()->json(null, 204);
     }
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
+
 }

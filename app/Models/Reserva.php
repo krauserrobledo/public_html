@@ -13,8 +13,8 @@ class Reserva extends Model
 {
     use HasFactory;
 
-    protected $table = 'reservas'; // Nombre exacto de tu tabla
-    protected $primaryKey = 'id'; // Coincide con tu estructura
+    protected $table = 'reservas'; 
+    protected $primaryKey = 'id'; 
 
     protected $fillable = [
         'id_usuario',
