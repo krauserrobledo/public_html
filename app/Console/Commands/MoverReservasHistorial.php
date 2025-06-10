@@ -18,8 +18,8 @@ class MoverReservasHistorial extends Command
 
         foreach ($reservasPasadas as $reserva) {
             HistorialReserva::create([
-                'user_id' => $reserva->user_id,
-                'id_caravana' => $reserva->id_caravana,
+                'id_usuario' => $reserva->id_usuario,
+                'id_autocaravana' => $reserva->id_autocaravana,
                 'fecha_inicio' => $reserva->fecha_inicio,
                 'fecha_fin' => $reserva->fecha_fin,
                 'pago_realizado' => $reserva->pago_realizado,

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold text-gray-800 dark:text-white">
+        <h2 class="text-xl font-semibold">
             {{ __('Panel de Administración') }}
         </h2>
     </x-slot>
@@ -29,6 +29,11 @@
                     <a href="{{ route('admin.reservas.create') }}" class="block p-6 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow transition duration-200">
                         <h4 class="text-lg font-semibold mb-2">Crear Reserva</h4>
                         <p>Haz una reserva en nombre de un cliente.</p>
+                    </a>
+
+                    <a href="{{ route('admin.historial.index') }}" class="block p-6 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow transition duration-200">
+                        <h4 class="text-lg font-semibold mb-2">Ver Historial</h4>
+                        <p>Comprueba reservas ya pasadas.</p>
                     </a>
 
                     <!-- Enlace adicional si lo deseas -->

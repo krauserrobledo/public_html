@@ -30,7 +30,7 @@ class ReservaController extends Controller
 
         if ($reservasActivas >= 5) {
             return response()->json([
-                'message' => 'Has alcanzado el límite de 5 reservas futuras'
+                'message' => 'Has alcanzado el limite de 5 reservas futuras'
             ], 422);
         }
 
@@ -54,7 +54,7 @@ class ReservaController extends Controller
 
         if (!$disponible) {
             return response()->json([
-                'message' => 'La autocaravana no está disponible en las fechas seleccionadas'
+                'message' => 'La autocaravana no esta disponible en las fechas seleccionadas'
             ], 409);
         }
 
@@ -125,7 +125,7 @@ class ReservaController extends Controller
 
         if (!$disponible) {
             return response()->json([
-                'message' => 'El vehículo no está disponible en las fechas seleccionadas'
+                'message' => 'El vehículo no esta disponible en las fechas seleccionadas'
             ], 409);
         }
 

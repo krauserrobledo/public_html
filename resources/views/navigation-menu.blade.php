@@ -5,15 +5,20 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                    <a href="{{ route('dashboard') }}" class="flex items-center">
+                        <img src="{{ asset('downloads/ic_van2.png') }}" 
+                            alt="Logo" 
+                        class="max-w-full h-auto mx-auto" 
+                        style="width: 50px; height: auto;">
+                    </a>
+                        <span class="ml-2 text-xl font-bold text-gray-800 hidden md:block">Una Vida Para Disfrutar</span>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Una Vida para Disfrutar!') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -22,7 +27,7 @@
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ms-3 relative">
-                        <x-dropdown align="right" width="60">
+                        <x-dropdown alignment="right" width="60">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
                                     <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
@@ -73,7 +78,7 @@
 
                 <!-- Settings Dropdown -->
                 <div class="ms-3 relative">
-                    <x-dropdown align="right" width="48">
+                    <x-dropdown alignment="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">

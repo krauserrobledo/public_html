@@ -1,6 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p alignment="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
+<p alignment="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
@@ -429,7 +429,8 @@ Dentro de la carpeta /Routes modificaremos el archivo web.php para gestionar los
 - AutocaravanaController.php (creacion de caravanas para Admin)
 
 ## 6.4 Vistas
--panel principal para admin.
+- panel principal para admin.
+- historial de reservas.
 - caravanas 
 - Formulario Caravanas
 - reservas (para cliente y para admin)
@@ -558,4 +559,17 @@ Aspectos a mejorar :
 
 Terminar de implementar pagos y sistema de correo. a medio implementar.
 añadir el numero de caravanas de cada tipo y y verificar disponibilidad por ocupacion en fecha.
-Mayor personalización de front-End con logos propios de la empresa.
+
+## 6.6. Gestión del Historial de Reservas
+
+Se implementó un sistema para almacenar y consultar las reservas pasadas de los usuarios, separándolas de las reservas activas.
+
+- **Base de datos:** Se creó una nueva tabla `historial_reservas` con estructura similar a la de `reservas`, incluyendo claves foráneas a usuarios y autocaravanas.
+
+- **Migración de datos:** Se desarrolló un script para mover automáticamente las reservas pasadas (por fecha) al historial. También se actualizaron registros manualmente para corregir datos nulos en los campos `id_usuario` e `id_autocaravana`:
+  
+  ```sql
+  UPDATE historial_reservas SET id_usuario = 3, id_autocaravana = 6 WHERE id = 1;
+  UPDATE historial_reservas SET id_usuario = 3, id_autocaravana = 6 WHERE id = 2;
+  UPDATE historial_reservas SET id_usuario = 3, id_autocaravana = 6 WHERE id = 3;
+

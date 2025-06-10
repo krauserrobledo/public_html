@@ -86,6 +86,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::put('{reserva}', [AdminReservaController::class, 'update'])->middleware(ValidateReservation::class)->name('update');
             Route::delete('{reserva}', [AdminReservaController::class, 'destroy'])->name('destroy');
         });
+        // Historial de reservas
+        Route::get('historial-reservas', [App\Http\Controllers\Admin\HistorialReservaController::class, 'index'])->name('historial.index');
+
 
     });
 });

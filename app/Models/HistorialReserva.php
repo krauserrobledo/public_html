@@ -26,6 +26,16 @@ class HistorialReserva extends Model
         'movido_en' => 'datetime',
     ];
 
-    public $timestamps = false; // si no quieres usar timestamps automáticos
-}
+    public $timestamps = false;
 
+    // Relaciones
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'id_usuario');
+    }
+
+    public function autocaravana()
+    {
+        return $this->belongsTo(Autocaravana::class, 'id_autocaravana');
+    }
+}

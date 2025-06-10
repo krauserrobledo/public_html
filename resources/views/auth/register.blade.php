@@ -1,8 +1,13 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+    <a href="/">
+        <img src="{{ asset('downloads/ic_van2.png') }}" 
+     alt="Logo" 
+     class="max-w-full h-auto mx-auto" 
+     style="width: 120px; height: auto;">
+    </a>
+</x-slot>
 
         <x-validation-errors class="mb-4" />
 
