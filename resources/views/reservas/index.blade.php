@@ -23,7 +23,7 @@
             <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 leading-relaxed opacity-60 ">
                 <div class="flex justify-between items-center mb-6 backdrop-blur-sm">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-white">
-                        Reservas Futuras
+                        Mis Reservas
                     </h3>
                     
                     @if($reservas->count() < 5)
