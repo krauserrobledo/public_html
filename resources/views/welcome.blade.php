@@ -267,7 +267,7 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat" 
-      style="background-image: url('{{ asset('downloads/img_intro.webp') }}');">
+      style="background-image: url('{{ asset('downloads/img_in.webp') }}');">
     <header class="w-full max-w-7xl mx-auto px-6 py-6">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-5">
@@ -285,7 +285,7 @@
     </header>
     
     <main class="flex-1 flex items-center justify-center px-6 py-12">
-        <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-y-auto ">
             <section class="hero-section bg-blue-900 text-white p-12 rounded-xl shadow-lg">
                 <div class="max-w-5xl mx-auto">
                     <!-- Encabezado principal -->

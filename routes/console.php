@@ -9,5 +9,5 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 // Registro de tareas programadas
 return function (Schedule $schedule) {
-    $schedule->command('reservas:mover-historial')->everyMinute();
+    $schedule->command('reservas:mover-historial')->dailyAt('00:00');
 };

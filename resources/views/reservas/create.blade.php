@@ -4,8 +4,21 @@
             {{ $editando ? __('Editar Reserva') : __('Nueva Reserva') }}
         </h2>
     </x-slot>
-    <div class="py-6">
+    <div class="min-h-screen bg-cover bg-center bg-no-repeat shadow rounded-lg p-6 " 
+      style="background-image: url('{{ asset('downloads/img_intro.webp') }}');">>
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+
+            @if(session('success'))
+                <div class="text-white p-4 mb-6" role="alert">
+                    <p>{{ session('success') }}</p>
+                </div>
+            @endif
+            
+            @if(session('error'))
+                <div class="bg-red-700 border-l-4 border-red-700 text-black p-4 mb-6" role="alert">
+                    <p>{{ session('error') }}</p>
+                </div>
+            @endif
             <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
                     @php
                         $max_fecha_inicio = date('Y-m-d', strtotime('+60 days'));
