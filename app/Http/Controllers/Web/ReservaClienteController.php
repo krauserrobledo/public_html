@@ -49,6 +49,8 @@ class ReservaClienteController extends Controller
         ]);
     }
 
+    
+
     // Guardar nueva reserva del cliente
     public function store(Request $request)
     {

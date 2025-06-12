@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\ValidateReservation;
@@ -50,13 +49,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     // RUTAS PARA CLIENTES
-    Route::middleware('role:cliente')->prefix('reservas')->name('reservas.')->group(function () {
-        Route::get('/', [ClienteReservaController::class, 'index'])->name('index');
-        Route::get('crear', [ClienteReservaController::class, 'create'])->name('create');
-        Route::post('/', [ClienteReservaController::class, 'store'])->middleware(ValidateReservation::class)->name('store');
-        Route::get('{reserva}/editar', [ClienteReservaController::class, 'edit'])->name('edit');
-        Route::put('{reserva}', [ClienteReservaController::class, 'update'])->middleware(ValidateReservation::class)->name('update');
-        Route::delete('{reserva}', [ClienteReservaController::class, 'destroy'])->name('destroy');
+    Route::middleware('role:cliente')->group(function () {
+        // Listado de autocaravanas visibles por clientes
+        Route::get('/autocaravanas', [AutocaravanaController::class, 'showToClients'])
+            ->name('reservas.autocaravanas');
+
+        // Gestión de reservas
+        Route::prefix('reservas')->name('reservas.')->group(function () {
+            Route::get('/', [ClienteReservaController::class, 'index'])->name('index');
+            Route::get('crear', [ClienteReservaController::class, 'create'])->name('create');
+            Route::post('/', [ClienteReservaController::class, 'store'])->middleware(ValidateReservation::class)->name('store');
+            Route::get('{reserva}/editar', [ClienteReservaController::class, 'edit'])->name('edit');
+            Route::put('{reserva}', [ClienteReservaController::class, 'update'])->middleware(ValidateReservation::class)->name('update');
+            Route::delete('{reserva}', [ClienteReservaController::class, 'destroy'])->name('destroy');
+        });
     });
 
     // RUTAS PARA ADMINISTRADORES
@@ -86,9 +92,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::put('{reserva}', [AdminReservaController::class, 'update'])->middleware(ValidateReservation::class)->name('update');
             Route::delete('{reserva}', [AdminReservaController::class, 'destroy'])->name('destroy');
         });
+
         // Historial de reservas
         Route::get('historial-reservas', [App\Http\Controllers\Admin\HistorialReservaController::class, 'index'])->name('historial.index');
-
-
     });
 });

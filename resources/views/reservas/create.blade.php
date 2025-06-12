@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="min-h-screen bg-cover bg-center bg-no-repeat shadow rounded-lg p-6 " 
-      style="background-image: url('{{ asset('downloads/img_intro.webp') }}');">>
+      style="background-image: url('{{ asset('downloads/img_intro.webp') }}');">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
 
             @if(session('success'))
@@ -56,7 +56,7 @@
                             </label>
                             <!-- Campo Fecha Inicio -->
                             <input id="fecha_inicio" name="fecha_inicio" type="date"
-                                class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 rounded-md shadow-sm"
+                                class="mt-1 block w-full border border-gray-300 bg-white text-black rounded-md shadow-sm"
                                 value="{{ old('fecha_inicio', isset($reserva->fecha_inicio) ? $reserva->fecha_inicio->format('Y-m-d') : '') }}"
                                 {{ !$editando ? 'min=' . date('Y-m-d') . ' max=' . $max_fecha_inicio : '' }} required>
                             @error('fecha_inicio')
@@ -76,10 +76,11 @@
                                     : date('Y-m-d', strtotime('+2 days'));
                             @endphp
 
-                            <input id="fecha_fin" name="fecha_fin" type="date"
-                                class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 rounded-md shadow-sm"
+                           <input id="fecha_fin" name="fecha_fin" type="date"
+                                class="mt-1 block w-full border border-gray-300 bg-white text-black rounded-md shadow-sm"
                                 value="{{ old('fecha_fin', isset($reserva->fecha_fin) ? $reserva->fecha_fin->format('Y-m-d') : '') }}"
                                 {{ !$editando ? 'min=' . $min_fecha_fin : '' }} required>
+
                             @error('fecha_fin')
                                 <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
                             @enderror

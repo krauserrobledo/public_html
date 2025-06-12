@@ -68,6 +68,12 @@ class AutocaravanaController extends Controller
         return redirect()->route('admin.autocaravanas.index')->with('success', 'Autocaravana actualizada correctamente.');
     }
 
+    public function showToClients()
+{
+    $autocaravanas = Autocaravana::where('disponible', true)->get();
+    return view('reservas.autocaravanas', compact('autocaravanas'));
+}
+
     // Eliminar autocaravana
     public function destroy($id)
     {
