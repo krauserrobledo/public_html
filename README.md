@@ -553,12 +553,10 @@ Por ultimo integramops restricciones de feca para cumplir las mejoras propuestas
 Para ambos clientes se consiguieron las mejoras :
 minimo de 2 dias de reserva. y de 7 en julio-agosto.
 maximo 60 dias de antelacion.
-Mover reservas no funciona del todo correctamente, por lo que no se implemento front para ello tambien debido a falta de tiempo por fecha de entrega cercana.
 
-Aspectos a mejorar :
+Mejoras :
 
-Terminar de implementar pagos y sistema de correo. a medio implementar.
-añadir el numero de caravanas de cada tipo y y verificar disponibilidad por ocupacion en fecha.
+Implementar pagos y sistema de correo.
 
 ## 6.6. Gestión del Historial de Reservas
 
