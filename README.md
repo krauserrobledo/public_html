@@ -65,7 +65,7 @@ Sistema profesional de reservas desarrollado como proyecto académico, implement
 - Notificaciones por email (SMTP propio)
 
 ### 📂 Estructura del Proyecto
-bash
+bash```
 app/
 ├── Http/
 │   ├── Controllers/  # Lógica de negocio
@@ -75,21 +75,21 @@ database/
 ├── migrations/       # Esquema completo
 ├── seeders/          # Datos de prueba
 └── factories/        # Modelos para testing
-🔧 Configuración Técnica
 
-## 1. Requisitos del Servidor
+###🔧 Configuración Técnica
+
+#### 1. Requisitos del Servidor
 bash
 # Ejemplo de instalación (Ubuntu)
 sudo apt install php8.2 php8.2-mysql mysql-server apache2
 
-## 2. Variables Críticas (.env)
+#### 2. Variables Críticas (.env)
 ini
 APP_ENV=production
 DB_HOST=127.0.0.1
 DB_DATABASE=reservas_prod
 
-# ¡Nota: Las credenciales reales están protegidas!
+## ¡Nota: Las credenciales reales están protegidas!
 
-## 3. Diagrama de Base de Datos
-https://github.com/user-attachments/assets/0b480fa3-374b-4ce6-be41-d146bd9a0f7d
-
+#### 3. Diagrama de Base de Datos
+![Modelo Relacional](https://github.com/user-attachments/assets/0b480fa3-374b-4ce6-be41-d146bd9a0f7d)
