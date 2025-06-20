@@ -485,7 +485,7 @@ Además de borrar el usuario anterior. Al acceder efectivamente al login
     "updated_at": "2025-06-01T18:58:17.000000Z",
     "profile_photo_url": "https://ui-avatars.com/api/?name=&color=7F9CF5&background=EBF4FF"
   },
-  "token": "5|YzAcTIj77E1yaL15kSEKnzbum2Fg4KdAQ1Wha2Z8117085d1"
+  "token": "5|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 }
 ```
 - Aparece respuesta Json sobre el usuario debido a no actualizar el enlace de controller en routes\web.php para el AuthController de la carpeta web. Ahora accedemos por igual al dashboard con usuarios cliente y admin. 
