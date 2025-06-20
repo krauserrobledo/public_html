@@ -19,38 +19,38 @@ Infraestructura: VPS optimizado (Ubuntu 24.04 LTS + LAMP)
 
 ✨ Características Clave
 🔐 Gestión de Usuarios
-Autenticación JWT (Sanctum)
+- Autenticación JWT (Sanctum)
 
-Roles: Cliente/Administrador
+- Roles: Cliente/Administrador
 
-Límite de 5 reservas simultáneas por cliente
+- Límite de 5 reservas simultáneas por cliente
 
 🚐 Motor de Reservas
-Validación inteligente de disponibilidad
+- Validación inteligente de disponibilidad
 
-Reglas de negocio:
+- Reglas de negocio:
 
-Mínimo 2 días (7 en temporada alta)
+    - Mínimo 2 días (7 en temporada alta)
 
-Límite de 60 días de antelación
+    - Límite de 60 días de antelación
 
-Historial automatizado (Cron Jobs)
+    - Historial automatizado (Cron Jobs)
 
-💳 Integraciones Profesionales
-Pasarela de pagos (Stripe/PayPal) con cobro del 20%
+💳 Mejoras propuestas
+- Pasarela de pagos (Stripe/PayPal) con cobro del 20%
 
-Notificaciones por email (SMTP propio)
+- Notificaciones por email (SMTP propio)
 
 📊 Dashboard Administrativo
-CRUD completo de autocaravanas
+- CRUD completo de autocaravanas
 
-Visualización de reservas activas/históricas
+- Visualización de reservas activas/históricas
 
-Exportación de datos
+- Exportación de datos
 
 🛠️ Tecnologías Implementadas
-Área	Stack
-Backend	Laravel 10, Eloquent ORM, Sanctum, PHP 8.2
+
+***Backend***:	Laravel 10, Eloquent ORM, Sanctum, PHP 8.2
 Frontend	Blade, Livewire, Alpine.js, Tailwind CSS
 Mobile	Kotlin, Retrofit (consumo API)
 DevOps	VPS (4GB RAM), Ubuntu 24.04, Apache2, Certbot (SSL), Git Flow
