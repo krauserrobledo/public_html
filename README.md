@@ -9,6 +9,7 @@ Desarrollado con Laravel 10, API REST y arquitectura escalable
   </a>
 </p>
 
+
 ## 📌 Visión General
 
 Sistema profesional de reservas desarrollado como proyecto académico, implementando:
@@ -21,7 +22,9 @@ Sistema profesional de reservas desarrollado como proyecto académico, implement
 
 - Infraestructura: VPS optimizado (Ubuntu 24.04 LTS + LAMP)
 
+
 ## ✨ Características Clave
+
 
 ### 🔐 Gestión de Usuarios
 - Autenticación JWT (Sanctum)
@@ -30,7 +33,9 @@ Sistema profesional de reservas desarrollado como proyecto académico, implement
 
 - Límite de 5 reservas simultáneas por cliente
 
+
 ### 🚐 Motor de Reservas
+
 - Validación inteligente de disponibilidad
 
 - Reglas de negocio:
@@ -41,22 +46,26 @@ Sistema profesional de reservas desarrollado como proyecto académico, implement
 
     - Historial automatizado (Cron Jobs)
 
+
 ### 📊 Dashboard Administrativo
 
 - CRUD completo de autocaravanas
 
-- Visualización de reservas activas/históricas
+- Visualización de reservas activas/históricas.
 
-- Exportación de datos
+- Exportación de datos.
+
 
 ### 🛠️ Tecnologías Implementadas
 
--***Backend***:	Laravel 10, Eloquent ORM, Sanctum, PHP 8.2
+- ***Backend***:	Laravel 10, Eloquent ORM, Sanctum, PHP 8.2.
 
--***Frontend***:	Blade, Livewire, Alpine.js, Tailwind CSS
+- ***Frontend***:	Blade, Livewire, Alpine.js, Tailwind CSS.
 
--***Mobile***:	Kotlin, Retrofit (consumo API)
--***DevOps***:	VPS (4GB RAM), Ubuntu 24.04, Apache2, Certbot (SSL), Git Flow
+- ***Mobile***:	Kotlin, Retrofit (consumo API).
+  
+- ***DevOps***:	VPS (4GB RAM), Ubuntu 24.04, Apache2, Certbot (SSL).
+
 
 ### 💳 Mejoras propuestas
 
@@ -64,22 +73,33 @@ Sistema profesional de reservas desarrollado como proyecto académico, implement
 
 - Notificaciones por email (SMTP propio)
 
+
 ### 📂 Estructura del Proyecto
-bash```
+
 app/
+
 ├── Http/
+
 │   ├── Controllers/  # Lógica de negocio
+
 │   ├── Middleware/   # Validación de roles/reservas
+
 │   └── Services/     # Lógica de pagos/emails
+
 database/
+
 ├── migrations/       # Esquema completo
+
 ├── seeders/          # Datos de prueba
+
 └── factories/        # Modelos para testing
 
-###🔧 Configuración Técnica
+
+### 🔧 Configuración Técnica
+
 
 #### 1. Requisitos del Servidor
-bash
+
 # Ejemplo de instalación (Ubuntu)
 sudo apt install php8.2 php8.2-mysql mysql-server apache2
 
