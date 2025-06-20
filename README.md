@@ -74,19 +74,29 @@ Sistema profesional de reservas desarrollado como proyecto académico, implement
 - Notificaciones por email (SMTP propio)
 
 
-### 📂 Estructura del Proyecto
+### 📂 Estructuras clave del Proyecto
 
 app/
 
 ├── Http/
+
 │   ├── Controllers/  # Lógica de negocio
+
 │   ├── Middleware/   # Validación de roles/reservas
+
 │   └── Services/     # Lógica de pagos/emails
+
 database/
+
 ├── migrations/       # Esquema completo
+
 ├── seeders/          # Datos de prueba
+
 └── factories/        # Modelos para testing
 
+api/
+
+└── controllers
 
 ### 🔧 Configuración Técnica
 
