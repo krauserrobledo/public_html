@@ -79,19 +79,12 @@ Sistema profesional de reservas desarrollado como proyecto académico, implement
 app/
 
 ├── Http/
-
 │   ├── Controllers/  # Lógica de negocio
-
 │   ├── Middleware/   # Validación de roles/reservas
-
 │   └── Services/     # Lógica de pagos/emails
-
 database/
-
 ├── migrations/       # Esquema completo
-
 ├── seeders/          # Datos de prueba
-
 └── factories/        # Modelos para testing
 
 
